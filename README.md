@@ -1,3 +1,4 @@
+![alt text](https://github.com/IB2016/CameraAVFoundation/blob/master/Resources/1457320050_device-camera.png)
 # CameraAVFoundation
 W repozytorium znajduje się klasa służąca do osbługi kamery, którą należy wykorzystać do realizacji zadania. Klasa implemntuje protokół CameraManagerProtocol zawierający metody klasowe. Dzięki temu bez konieczności tworzenia obiektu możemy operować na kamerze, wykonując na niej różne operacje:
 ## Utworzenie podglądu z kamery telefonu
