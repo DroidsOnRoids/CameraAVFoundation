@@ -25,13 +25,16 @@ class CameraManager {
 // MARK: Private methods
     
     private static func addOutput() {
-        guard let session = self.session, output = imageOutput else { return }
+        guard let session = self.session else { return }
             session.beginConfiguration()
-            session.removeOutput(output)
+            if let output = imageOutput {
+                session.removeOutput(output)
+            }
             
             imageOutput = AVCaptureStillImageOutput()
         
             session.sessionPreset = AVCaptureSessionPresetPhoto
+            guard let output = imageOutput else { return }
             dispatch_async(dispatch_get_main_queue()) {
                 let outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
                 output.outputSettings = outputSettings
