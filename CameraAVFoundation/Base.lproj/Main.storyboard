@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,11 +17,59 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgP-11-r3p">
+                                <rect key="frame" x="270" y="520" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="a2X-hF-0D1"/>
+                                    <constraint firstAttribute="height" constant="60" id="bGC-bg-8w8"/>
+                                </constraints>
+                                <state key="normal" image="TakePhotoButtonImage"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bG4-VZ-kIT">
+                                <rect key="frame" x="183" y="535" width="33" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="Imc-C1-hyJ"/>
+                                    <constraint firstAttribute="height" constant="29" id="REO-UC-jd7"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="SwitchCameraButtonImage"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="URZ-00-gPU">
+                                <rect key="frame" x="388" y="533" width="24" height="33"/>
+                                <state key="normal" image="FlashButtonImage"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bG4-VZ-kIT" secondAttribute="bottom" constant="36" id="1HB-zz-CrV"/>
+                            <constraint firstItem="bG4-VZ-kIT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-100" id="7KZ-BH-ea9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AgP-11-r3p" secondAttribute="bottom" constant="20" id="TOx-KA-TvN"/>
+                            <constraint firstItem="URZ-00-gPU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="100" id="jvY-fQ-a7H"/>
+                            <constraint firstItem="AgP-11-r3p" firstAttribute="leading" secondItem="bG4-VZ-kIT" secondAttribute="trailing" constant="112" id="mmt-LD-ZWr"/>
+                            <constraint firstItem="bG4-VZ-kIT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="105" id="uo9-3L-gzJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="URZ-00-gPU" secondAttribute="bottom" constant="34" id="vlT-gx-VF4"/>
+                            <constraint firstItem="AgP-11-r3p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zu0-aB-aZC"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="uo9-3L-gzJ"/>
+                                <exclude reference="mmt-LD-ZWr"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="flashButton" destination="URZ-00-gPU" id="NZQ-Bn-MuN"/>
+                        <outlet property="switchCameraButton" destination="bG4-VZ-kIT" id="v2M-6V-Awr"/>
+                        <outlet property="takePhotoButton" destination="AgP-11-r3p" id="E8t-MT-qKb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="FlashButtonImage" width="24" height="33"/>
+        <image name="SwitchCameraButtonImage" width="33" height="29"/>
+        <image name="TakePhotoButtonImage" width="60" height="60"/>
+    </resources>
 </document>

@@ -9,27 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-// MARK: View Controller lifecycle methods
+    
+    @IBOutlet weak var takePhotoButton: UIButton!
+    @IBOutlet weak var switchCameraButton: UIButton!
+    @IBOutlet weak var flashButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewDidLoadSetup()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
-// MARK: Setup
     
     func viewDidLoadSetup() {
         let screenFrame = UIScreen.mainScreen().bounds
         let previewDimension = CGSize(width: CGRectGetWidth(screenFrame), height: CGRectGetHeight(screenFrame))
         
         CameraManager.generateCameraPreview(previewSize: previewDimension) { [unowned self] sessionPreview in
-            guard let preview = sessionPreview else { return }
-            self.view.addSubview(preview)
+            guard let preview = sessionPreview, firstSubview = self.view.subviews.first else { return }
+            self.view.insertSubview(preview, belowSubview: firstSubview)
         }
     }
 
